@@ -1,0 +1,106 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,500;600;700&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&display=swap");
+@import "tailwindcss";
+
+:root {
+  /* font-family: "Inter", sans-serif; */
+  font-family: "Manrope", sans-serif;
+  /* ===============================
+     Base / Backgrounds
+  =============================== */
+  --color-bg-primary: hsl(233, 39%, 23%); /* Main dark background */
+  --color-bg-secondary: hsl(233, 37%, 24%); /* Gradient / alt background */
+  --color-bg-surface: hsl(234, 32%, 29%); /* Card background */
+  --color-bg-surface-alt: hsl(233, 32%, 33%); /* Inner panels / buttons */
+
+  /* ===============================
+     Text / Neutral
+  =============================== */
+  --color-text-primary: hsl(253, 35%, 89%); /* Main text (almost white) */
+  --color-text-secondary: hsl(226, 25%, 70%); /* Muted text */
+  --color-text-disabled: hsl(260, 18%, 48%); /* Disabled / subtle text */
+  --color-black-soft: hsl(15, 6%, 14%); /* Shadows / dividers */
+
+  /* ===============================
+     Accent / Brand (Pink–Purple)
+  =============================== */
+  --color-accent-primary: hsl(289, 60%, 63%); /* Main pink/purple */
+  --color-accent-secondary: hsl(310, 55%, 60%);
+  --color-accent-tertiary: hsl(327, 66%, 61%);
+
+  /* ===============================
+     State Colors
+  =============================== */
+  --color-success: hsl(234, 32%, 29%); /* Check / correct (blue-toned) */
+  --color-error: hsl(327, 66%, 61%); /* Wrong answer */
+  --color-warning: hsl(18, 60%, 55%); /* Trophy / points badge */
+
+  /* ===============================
+     Button States
+  =============================== */
+  --color-btn-default: hsl(233, 32%, 33%);
+  --color-btn-hover: hsl(233, 32%, 29%);
+  --color-btn-active: hsl(233, 39%, 23%);
+
+  --color-bg-btn: linear-gradient(
+    90deg,
+    hsl(330, 86%, 70%),
+    hsl(270, 95%, 75%)
+  );
+}
+
+@theme {
+  /* ===============================
+     Base / Backgrounds
+  =============================== */
+  --color-bg-primary: hsl(233, 39%, 23%); /* Main dark background */
+  --color-bg-secondary: hsl(233, 37%, 24%); /* Gradient / alt background */
+  --color-bg-surface: hsl(234, 32%, 29%); /* Card background */
+  --color-bg-surface-alt: hsl(233, 32%, 33%); /* Inner panels / buttons */
+
+  /* ===============================
+     Text / Neutral
+  =============================== */
+  --color-text-primary: hsl(253, 35%, 89%); /* Main text (almost white) */
+  --color-text-secondary: hsl(226, 25%, 70%); /* Muted text */
+  --color-text-disabled: hsl(260, 18%, 48%); /* Disabled / subtle text */
+  --color-black-soft: hsl(15, 6%, 14%); /* Shadows / dividers */
+
+  /* ===============================
+     Accent / Brand (Pink–Purple)
+  =============================== */
+  --color-accent-primary: hsl(289, 60%, 63%); /* Main pink/purple */
+  --color-accent-secondary: hsl(310, 55%, 60%);
+  --color-accent-tertiary: hsl(327, 66%, 61%);
+
+  /* ===============================
+     State Colors
+  =============================== */
+  --color-success: hsl(234, 32%, 29%); /* Check / correct (blue-toned) */
+  --color-error: hsl(327, 66%, 61%); /* Wrong answer */
+  --color-warning: hsl(18, 60%, 55%); /* Trophy / points badge */
+
+  /* ===============================
+     Button States
+  =============================== */
+  --color-btn-default: hsl(233, 32%, 33%);
+  --color-btn-hover: hsl(233, 32%, 29%);
+  --color-btn-active: hsl(233, 39%, 23%);
+
+  --color-bg-btn: linear-gradient(
+    90deg,
+    hsl(330, 86%, 70%),
+    hsl(270, 95%, 75%)
+  );
+
+  --bg-desktop: url("../public/images/bg.jpg");
+}
+
+body {
+}
+
+@layer components {
+  .btn {
+    @apply bg-accent-tertiary text-text-primary cursor-pointer;
+  }
+}
