@@ -103,4 +103,7 @@ body {
   .btn {
     @apply bg-accent-tertiary text-text-primary cursor-pointer;
   }
+  .btnOption {
+    @apply bg-bg-surface-alt text-text-primary px-5 py-4 rounded-[0.8rem] flex gap-3 cursor-pointer;
+  }
 }
