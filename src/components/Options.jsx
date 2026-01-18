@@ -3,14 +3,14 @@ function Options({ question, dispatch, answerPicked }) {
 
   // const answerPick = question.answer[question.index] ?? null;
 
-  console.log(hasAnswered);
+  // console.log(hasAnswered);
 
   function handleAnswer(OptionSelected) {
     dispatch({ type: "newAnswer", payload: OptionSelected });
     console.log(OptionSelected);
   }
 
-  console.log(answerPicked);
+  // console.log(answerPicked);
   return (
     <div className="grid grid-cols-2 gap-4 mt-5">
       {question.options.map((option, index) => (
@@ -39,7 +39,5 @@ function Options({ question, dispatch, answerPicked }) {
     </div>
   );
 }
-
-// hasAnswered ? (index === question.correctOption ? "correct" : "wrong") : "";
 
 export default Options;

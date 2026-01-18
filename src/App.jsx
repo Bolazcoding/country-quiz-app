@@ -74,7 +74,7 @@ function App() {
     (prev, cur) => prev + cur.points,
     0,
   );
-  console.log(answerPicked);
+  // console.log(answerPicked);
 
   useEffect(function () {
     // fetch(

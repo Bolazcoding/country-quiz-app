@@ -9,6 +9,9 @@ function PreviousButton({ dispatch, index }) {
       >
         Previous
       </button>
+      <p className="text-error mt-4">
+        Building in progress... Check back later
+      </p>
     </div>
   );
 }
