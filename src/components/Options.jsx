@@ -41,6 +41,7 @@ function Options({ question, dispatch, answerPicked }) {
             )}
         </button>
       ))}
+      <p className="text-error">Building in progress , check back later...</p>
     </div>
   );
 }
