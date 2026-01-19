@@ -7,7 +7,8 @@ import generateRandomQuiz from "./components/apiFeatures/generateRandomQuiz";
 import WelcomeScreen from "./components/WelcomeScreen";
 import Question from "./components/Question";
 import NextButton from "./components/NextButton";
-import PreviousButton from "./components/PreviousButton";
+import TrackProgress from "./components/TrackProgress";
+// import PreviousButton from "./components/PreviousButton";
 
 const initialState = {
   questions: [],
@@ -54,12 +55,13 @@ function reducer(state, action) {
         index: state.index + 1,
         answerPicked: null,
       };
-    case "previousQuestion":
-      return {
-        ...state,
-        index: state.index - 1,
-        // answerPicked: action.payload,
-      };
+    // case "previousQuestion":
+    //   return {
+    //     ...state,
+    //     index: state.index - 1,
+    //     // answerPicked: action.payload,
+    //   };
+
     default:
       throw new Error("Action unknown");
   }
@@ -68,21 +70,16 @@ function reducer(state, action) {
 function App() {
   const [{ questions, status, index, answerPicked, points }, dispatch] =
     useReducer(reducer, initialState);
-  // const [Quiz, setQuiz] = useState("");
+
   const numOfQuestions = questions.length;
   const maxPossiblePoints = questions.reduce(
     (prev, cur) => prev + cur.points,
     0,
   );
+
   // console.log(answerPicked);
 
   useEffect(function () {
-    // fetch(
-    //   "https://restcountries.com/v3.1/all?fields=name,capital,flags,region,currencies"
-    // )
-    //   .then((res) => res.json())
-    //   .then((data) => dispatch({ type: "dataReceived", payload: data }))
-    //   .catch((err) => dispatchEvent({ type: "dataFailed" }));
     async function fetchQuestions() {
       const res = await fetch(
         "https://restcountries.com/v3.1/all?fields=name,capital,flags,region,currencies",
@@ -117,6 +114,7 @@ function App() {
           )}
           {status === "active" && (
             <>
+              <TrackProgress question={questions} index={index} />
               <Question
                 question={questions[index]}
                 dispatch={dispatch}
@@ -129,12 +127,12 @@ function App() {
                 answerPicked={answerPicked}
                 numOfQuestions={numOfQuestions}
               />
-              <PreviousButton
+              {/* <PreviousButton
                 dispatch={dispatch}
                 index={index}
                 answerPicked={answerPicked}
                 numOfQuestions={numOfQuestions}
-              />
+              /> */}
             </>
           )}
         </div>

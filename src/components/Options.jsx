@@ -7,7 +7,7 @@ function Options({ question, dispatch, answerPicked }) {
 
   function handleAnswer(OptionSelected) {
     dispatch({ type: "newAnswer", payload: OptionSelected });
-    console.log(OptionSelected);
+    // console.log(OptionSelected);
   }
 
   // console.log(answerPicked);
@@ -15,7 +15,12 @@ function Options({ question, dispatch, answerPicked }) {
     <div className="grid grid-cols-2 gap-4 mt-5">
       {question.options.map((option, index) => (
         <button
-          className="btnOption"
+          className={`btnOption ${
+            hasAnswered &&
+            option === answerPicked &&
+            answerPicked !== question.answer &&
+            `bg-accent-tertiary`
+          }`}
           onClick={() => handleAnswer(option)}
           disabled={answerPicked !== null}
         >
