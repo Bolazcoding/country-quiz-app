@@ -12,7 +12,7 @@ function Options({ question, dispatch, answerPicked }) {
 
   // console.log(answerPicked);
   return (
-    <div className="grid grid-cols-2 gap-4 mt-5">
+    <div className="grid grid-cols-2 gap-4 mt-5 max-[510px]:grid-cols-1">
       {question.options.map((option, index) => (
         <button
           className={`btnOption ${
@@ -25,11 +25,6 @@ function Options({ question, dispatch, answerPicked }) {
           disabled={answerPicked !== null}
         >
           <span>{option}</span>
-          {/* {question.answer === answerPicked ? (
-            <img src="/images/Check_round_fill.svg" alt="correctAnswer" />
-          ) : (
-            ""
-          )} */}
           {hasAnswered && option === question.answer && (
             <img src="/images/Check_round_fill.svg" alt="correctAnswer" />
           )}
@@ -41,7 +36,7 @@ function Options({ question, dispatch, answerPicked }) {
             )}
         </button>
       ))}
-      <p className="text-error">Building in progress , check back later...</p>
+      {/* <p className="text-error">Building in progress , check back later...</p> */}
     </div>
   );
 }

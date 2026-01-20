@@ -8,6 +8,7 @@ import WelcomeScreen from "./components/WelcomeScreen";
 import Question from "./components/Question";
 import NextButton from "./components/NextButton";
 import TrackProgress from "./components/TrackProgress";
+import FinishQuiz from "./components/FinishQuiz";
 // import PreviousButton from "./components/PreviousButton";
 
 const initialState = {
@@ -61,6 +62,20 @@ function reducer(state, action) {
     //     index: state.index - 1,
     //     // answerPicked: action.payload,
     //   };
+    case "finish":
+      return {
+        ...state,
+        status: "finished",
+        // highscore: state.points > state.highscore ? state.points : state.points,
+      };
+    case "playAgain":
+      return {
+        ...state,
+        status: "ready",
+        index: 0,
+        answerPicked: null,
+        points: 0,
+      };
 
     default:
       throw new Error("Action unknown");
@@ -98,14 +113,16 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-[image:var(--bg-desktop)] bg-cover h-screen w-full flex items-center justify-center flex-col">
+    <div className="bg-[image:var(--bg-desktop)] bg-cover h-screen w-full flex items-center justify-center max-[510px]:px-4">
       <Main>
         <Header
           points={points}
           maxPossiblePoints={maxPossiblePoints}
           status={status}
         />
-        <div className="bg-bg-surface py-12 px-20 mt-6 rounded-[0.6rem]">
+        <div
+          className={`bg-bg-surface mt-6 rounded-[0.6rem] ${status === "finished" ? "py-3 px-8" : "py-12 px-14"} max-[510px]:py-7 max-[510px]:px-5`}
+        >
           {status === "ready" && (
             <WelcomeScreen
               numOfQuestions={numOfQuestions}
@@ -134,6 +151,13 @@ function App() {
                 numOfQuestions={numOfQuestions}
               /> */}
             </>
+          )}
+          {status === "finished" && (
+            <FinishQuiz
+              points={points}
+              maxPossiblePoints={maxPossiblePoints}
+              dispatch={dispatch}
+            />
           )}
         </div>
       </Main>
