@@ -4,10 +4,10 @@ function FinishQuiz({ points, maxPossiblePoints, dispatch }) {
   return (
     <div className=" flex flex-col items-center justify-center text-center mb-6">
       <img src="/images/congrats.png" alt="successImage" className="w-58" />
-      <h3 className="text-text-primary font-semibold mt-2">
+      <h3 className="text-text-primary text-2xl font-semibold mt-2">
         Congrats! You completed the quiz.
       </h3>
-      <p className="text-text-primary text-[0.8rem] mt-2">
+      <p className="text-text-primary text-[1.1rem] mt-2">
         You scored <strong>{points}</strong> out of{" "}
         <strong>{maxPossiblePoints}</strong> points correctly
       </p>

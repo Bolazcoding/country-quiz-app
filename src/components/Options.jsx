@@ -1,16 +1,10 @@
 function Options({ question, dispatch, answerPicked }) {
   const hasAnswered = answerPicked !== null;
 
-  // const answerPick = question.answer[question.index] ?? null;
-
-  // console.log(hasAnswered);
-
   function handleAnswer(OptionSelected) {
     dispatch({ type: "newAnswer", payload: OptionSelected });
-    // console.log(OptionSelected);
   }
 
-  // console.log(answerPicked);
   return (
     <div className="grid grid-cols-2 gap-4 mt-5 max-[510px]:grid-cols-1">
       {question.options.map((option, index) => (

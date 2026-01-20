@@ -42,7 +42,6 @@ function reducer(state, action) {
     case "newAnswer": {
       const question = state.questions.at(state.index);
       const isCorrect = action.payload === question.answer;
-      console.log(action.payload);
 
       return {
         ...state,
@@ -66,7 +65,6 @@ function reducer(state, action) {
       return {
         ...state,
         status: "finished",
-        // highscore: state.points > state.highscore ? state.points : state.points,
       };
     case "playAgain":
       return {
@@ -92,16 +90,12 @@ function App() {
     0,
   );
 
-  // console.log(answerPicked);
-
   useEffect(function () {
     async function fetchQuestions() {
       const res = await fetch(
         "https://restcountries.com/v3.1/all?fields=name,capital,flags,region,currencies",
       );
       const data = await res.json();
-      // console.log(data);
-      // setQuiz(generateRandomQuiz(data));
       const questions = generateRandomQuiz(data);
 
       dispatch({

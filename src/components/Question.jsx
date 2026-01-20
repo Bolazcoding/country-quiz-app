@@ -9,11 +9,8 @@ function Question({ question, dispatch, answerPicked, index }) {
           <img src={question.image} alt="countryImage" className="w-10" />
         )}
       </h1>
-
-      {/* <p className="text-error mt-5 font-semibold">
-        Building in progress... , check back later
-      </p> */}
       <Options
+        key={question.type}
         question={question}
         dispatch={dispatch}
         answerPicked={answerPicked}
