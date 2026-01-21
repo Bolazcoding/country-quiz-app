@@ -11,6 +11,8 @@ import TrackProgress from "./components/TrackProgress";
 import FinishQuiz from "./components/FinishQuiz";
 // import PreviousButton from "./components/PreviousButton";
 
+const SECS_PER_QUESTION = 30;
+
 const initialState = {
   questions: [],
 
@@ -19,6 +21,7 @@ const initialState = {
   index: 0,
   answerPicked: null,
   points: 0,
+  secondsRemaining: null,
 };
 
 function reducer(state, action) {
@@ -38,6 +41,7 @@ function reducer(state, action) {
       return {
         ...state,
         status: "active",
+        secondsRemaining: state.questions.length * SECS_PER_QUESTION,
       };
     case "newAnswer": {
       const question = state.questions.at(state.index);
@@ -74,6 +78,12 @@ function reducer(state, action) {
         answerPicked: null,
         points: 0,
       };
+    case "tick":
+      return {
+        ...state,
+        secondsRemaining: state.secondsRemaining - 1,
+        status: state.secondsRemaining === 0 ? "finished" : state.status,
+      };
 
     default:
       throw new Error("Action unknown");
@@ -81,8 +91,10 @@ function reducer(state, action) {
 }
 
 function App() {
-  const [{ questions, status, index, answerPicked, points }, dispatch] =
-    useReducer(reducer, initialState);
+  const [
+    { questions, status, index, answerPicked, points, secondsRemaining },
+    dispatch,
+  ] = useReducer(reducer, initialState);
 
   const numOfQuestions = questions.length;
   const maxPossiblePoints = questions.reduce(
@@ -130,6 +142,8 @@ function App() {
                 index={index}
                 answerPicked={answerPicked}
                 numOfQuestions={numOfQuestions}
+                dispatch={dispatch}
+                secondsRemaining={secondsRemaining}
               />
               <Question
                 question={questions[index]}

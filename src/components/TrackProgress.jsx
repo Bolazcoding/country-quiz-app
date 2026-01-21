@@ -1,10 +1,18 @@
-function TrackProgress({ numOfQuestions, index, answerPicked }) {
+import QuizTimer from "./QuizTimer";
+
+function TrackProgress({
+  numOfQuestions,
+  index,
+  answerPicked,
+  dispatch,
+  secondsRemaining,
+}) {
   // const currentIndex = index;
   const progress =
     ((index + Number(answerPicked !== null)) / numOfQuestions) * 100;
 
   return (
-    <div className="flex flex-col gap-3 items-center justify-center ">
+    <div className="flex flex-col gap-3 justify-center ">
       {/* <progress
         className="w-full bg-bg-surface-alt"
         max={numOfQuestions}
@@ -17,9 +25,12 @@ function TrackProgress({ numOfQuestions, index, answerPicked }) {
         />
       </div>
 
-      <p className="text-text-primary">
-        Question <strong>{index + 1}</strong> / {numOfQuestions}
-      </p>
+      <div className="flex items-center justify-between">
+        <p className="text-text-secondary text-[0.85rem]">
+          Question <strong>{index + 1}</strong> / {numOfQuestions}
+        </p>
+        <QuizTimer dispatch={dispatch} secondsRemaining={secondsRemaining} />
+      </div>
       {/* {question.map((_, i) => {
         const isCurrent = i === currentIndex;
         const isAnswered = answerPicked && answerPicked[i] !== undefined;
