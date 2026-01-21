@@ -107,7 +107,7 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-[image:var(--bg-desktop)] bg-cover h-screen w-full flex items-center justify-center max-[510px]:px-4">
+    <div className="bg-[image:var(--bg-desktop)] bg-cover h-screen w-full flex items-center justify-center max-[640px]:bg-[image:var(--bg-mobile)] max-[510px]:px-4">
       <Main>
         <Header
           points={points}
@@ -125,7 +125,12 @@ function App() {
           )}
           {status === "active" && (
             <>
-              <TrackProgress question={questions} index={index} />
+              <TrackProgress
+                question={questions}
+                index={index}
+                answerPicked={answerPicked}
+                numOfQuestions={numOfQuestions}
+              />
               <Question
                 question={questions[index]}
                 dispatch={dispatch}

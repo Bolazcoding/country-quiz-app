@@ -94,9 +94,7 @@
   );
 
   --bg-desktop: url("../public/images/bg.jpg");
-}
-
-body {
+  --bg-mobile: url("../public/images/bg-sm.jpg");
 }
 
 @layer components {

@@ -7,7 +7,7 @@ function Options({ question, dispatch, answerPicked }) {
 
   return (
     <div className="grid grid-cols-2 gap-4 mt-5 max-[510px]:grid-cols-1">
-      {question.options.map((option, index) => (
+      {question.options.map((option) => (
         <button
           className={`btnOption ${
             hasAnswered &&
@@ -15,6 +15,7 @@ function Options({ question, dispatch, answerPicked }) {
             answerPicked !== question.answer &&
             `bg-accent-tertiary`
           }`}
+          key={option}
           onClick={() => handleAnswer(option)}
           disabled={answerPicked !== null}
         >
