@@ -1,16 +1,51 @@
-# React + Vite
+# Country Quiz App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Table of contents
 
-Currently, two official plugins are available:
+- [Overview](#overview)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [Continued development](#continued-development)
+- [Author](#author)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Overview
 
-## React Compiler
+- Build a country quiz app.
+- Work with country API to generate quiz questions.
+- Display quiz questions with multiple options.
+- Provide immediate feedback on user's answer.
+- Allow users to navigate between questions.
+- Show a congratulations page with the quiz result.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Screenshot
 
-## Expanding the ESLint configuration
+- Desktop Preview
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+![](./public/images/Desktop%20preview.png)
+
+- Mobile Preview
+
+![](./public/images/Mobile%20preview.png)
+
+### Links
+
+- Solution URL: https://github.com/Bolazcoding/country-quiz-app
+- Live Site URL: https://mobolaji-country-quiz.netlify.app/
+
+### Built with
+
+- Semantic HTML5 markup
+- Tailwind CSS
+- React(useReducer)
+- API
+
+### Continued development
+
+This project tested my skills but I'm looking forward to more projects to build in the future.
+
+## Author
+
+- Website - [my github](https://github.com/Bolazcoding)
+- Twitter - [@myusername](https://x.com/_joseDev_)
